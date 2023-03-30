@@ -45,7 +45,7 @@ function App() {
   function pushInputData(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (name.length && catchPhrase.length) {
-      setData((data: any) => [...data, inputData]);
+      setData((data: Array<dataType>) => [...data, inputData]);
     } else {
       setError("You have to add a name and a catchphrase!");
     }
@@ -54,7 +54,7 @@ function App() {
   // function pushInputData(e: React.FormEvent<HTMLFormElement>) {
   //   const pushResult = useMemo(() => {
   //     e.preventDefault();
-  //     setData((data: any) => [...data, inputData]);
+  //     setData((data: Array<dataType>) => [...data, inputData]);
   //   }, []);
   //   return pushResult;
   // }

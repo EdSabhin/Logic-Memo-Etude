@@ -20,7 +20,8 @@ function App() {
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [catchPhrase, setCatchphrase] = useState("");
-  const refInput = useRef<HTMLInputElement>(null);
+  const refInputName = useRef<HTMLInputElement>(null);
+  const refInputCatchphrase = useRef<HTMLInputElement>(null);
 
   function FetchButton() {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -63,8 +64,9 @@ function App() {
     setError("");
     setName("");
     setCatchphrase("");
-    if (refInput.current) {
-      refInput.current.value = "";
+    if (refInputName.current && refInputCatchphrase.current) {
+      refInputName.current.value = "";
+      refInputCatchphrase.current.value = "";
     }
   }
 
@@ -80,12 +82,12 @@ function App() {
               className="flex flex-col justify-center gap-8 h-full"
             >
               <Input
-                refInput={refInput}
+                refInput={refInputName}
                 placeholder="Enter your name!"
                 setInput={setName}
               />
               <Input
-                refInput={refInput}
+                refInput={refInputCatchphrase}
                 placeholder="Enter your catchphrase!"
                 setInput={setCatchphrase}
               />
